@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kambio Project | Agua + Seguridad Alimentaria</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons (Reemplazo de los iconos de React) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fuente: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Animaciones suaves para las tarjetas */
+        .hover-card { transition: all 0.3s ease; }
+        .hover-card:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-transparent">
+        <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <div class="bg-cyan-600 p-2 rounded-lg text-white shadow-lg">
+                    <i data-lucide="droplets" class="w-6 h-6"></i>
+                </div>
+                <span id="brand-text" class="text-xl font-bold tracking-tight text-white transition-colors duration-300">
+                    Kambio<span class="text-cyan-600">Project</span>
+                </span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 lg:space-x-8">
+                <a href="#home" class="nav-link font-medium transition-colors text-white/90 hover:text-white">Inicio</a>
+                <a href="#problem" class="nav-link font-medium transition-colors text-white/90 hover:text-white">Problema</a>
+                <a href="#solution" class="nav-link font-medium transition-colors text-white/90 hover:text-white">Solución</a>
+                <!-- Link Destacado: Acuicultura -->
+                <a href="#aquaculture" id="aquaculture-link" class="nav-link font-bold transition-colors text-cyan-300 hover:text-cyan-100">Acuicultura</a>
+                <a href="#impact" class="nav-link font-medium transition-colors text-white/90 hover:text-white">Impacto</a>
+                <a href="#model" class="nav-link font-medium transition-colors text-white/90 hover:text-white">Modelo</a>
+                <a href="#team" class="nav-link font-medium transition-colors text-white/90 hover:text-white">Equipo</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 transition-colors text-white">
+                <i id="menu-icon" data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Dropdown -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-xl py-4 px-6 flex flex-col space-y-4 border-t border-gray-100">
+            <a href="#home" class="mobile-link text-gray-600 font-medium py-2 border-b border-gray-100">Inicio</a>
+            <a href="#problem" class="mobile-link text-gray-600 font-medium py-2 border-b border-gray-100">Problema</a>
+            <a href="#solution" class="mobile-link text-gray-600 font-medium py-2 border-b border-gray-100">Solución</a>
+            <a href="#aquaculture" class="mobile-link text-cyan-600 font-bold py-2 border-b border-gray-100 bg-cyan-50 pl-2 rounded">Acuicultura (Fase 2)</a>
+            <a href="#impact" class="mobile-link text-gray-600 font-medium py-2 border-b border-gray-100">Impacto</a>
+            <a href="#model" class="mobile-link text-gray-600 font-medium py-2 border-b border-gray-100">Modelo</a>
+            <a href="#team" class="mobile-link text-gray-600 font-medium py-2 border-b border-gray-100">Equipo</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-900 min-h-[80vh] flex items-center">
+        <!-- Background Image & Overlay -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/70 to-slate-800/30 z-10"></div>
+            <!-- Imagen verificada de Unsplash: Mujer Wayúu/Desierto -->
+            <img 
+                src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                alt="Mujer y comunidad en el desierto de La Guajira" 
+                class="w-full h-full object-cover opacity-90"
+                onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(to right, #0f172a, #334155)'"
+            >
+        </div>
+
+        <div class="container mx-auto px-4 relative z-20 text-center md:text-left">
+            <div class="max-w-4xl">
+                <div class="inline-block px-4 py-1.5 bg-cyan-500/20 border border-cyan-400/30 rounded-full text-cyan-300 text-sm font-bold mb-6 backdrop-blur-sm tracking-wide">
+                    LA GUAJIRA, COLOMBIA
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+                    Del Agua a la <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300">
+                        Seguridad Alimentaria
+                    </span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed max-w-2xl">
+                    Agua Segura es solo el primer paso. Con gobernanza comunitaria y energía solar, activamos <strong>Granjas Productivas Inteligentes</strong> para romper el ciclo de pobreza y garantizar alimento.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#aquaculture" class="px-8 py-4 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-lg transition-all shadow-lg shadow-cyan-900/30 flex items-center justify-center gap-2 hover:-translate-y-1">
+                        Ver Granjas Inteligentes <i data-lucide="fish" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#solution" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold rounded-lg backdrop-blur-sm transition-all flex items-center justify-center hover:-translate-y-1">
+                        Modelo Base
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">El Ciclo del Abandono</h2>
+                <p class="text-lg text-gray-600">
+                    En La Guajira rural dispersa, la crisis no es solo de infraestructura. Es una crisis de sostenibilidad que afecta el agua y la comida.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="hover-card bg-red-50 p-8 rounded-2xl border border-red-100">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-red-600 mb-6">
+                        <i data-lucide="wrench" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Fallas Operativas</h3>
+                    <p class="text-gray-600">
+                        La infraestructura falla por falta de mantenimiento preventivo, repuestos y capacidad técnica local instalada.
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="hover-card bg-orange-50 p-8 rounded-2xl border border-orange-100">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mb-6">
+                        <i data-lucide="users" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Quiebres de Gobernanza</h3>
+                    <p class="text-gray-600">
+                        La falta de reglas claras y roles definidos genera conflictos internos y politización del recurso.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="hover-card bg-slate-50 p-8 rounded-2xl border border-slate-100">
+                    <div class="w-14 h-14 bg-slate-200 rounded-full flex items-center justify-center text-slate-700 mb-6">
+                        <i data-lucide="activity" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">La Realidad</h3>
+                    <p class="text-gray-600">
+                        Un ciclo repetitivo: inauguración, daño y abandono. Las comunidades quedan sin agua y sin capacidad productiva.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section (Phase 1) -->
+    <section id="solution" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cyan-600 font-bold tracking-wider uppercase text-sm mb-2 block">Fase 1: La Base</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Water Hubs: El Ecosistema Habilitador</h2>
+                <p class="text-lg text-gray-600">
+                    Antes de producir, debemos estabilizar. Implementamos "Agua Segura como Servicio" combinando estos 6 pilares.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Component 1 -->
+                <div class="hover-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-cyan-500">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="p-3 bg-cyan-50 text-cyan-600 rounded-lg">
+                            <i data-lucide="droplets" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">Hardware de Agua</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Tecnología agnóstica (AWG, desalinización) adaptada al contexto específico de cada comunidad.
+                    </p>
+                </div>
+
+                <!-- Component 2 -->
+                <div class="hover-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-yellow-500">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="p-3 bg-yellow-50 text-yellow-600 rounded-lg">
+                            <i data-lucide="sun" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">Fiabilidad Energética</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Energía solar + almacenamiento robusto para proteger equipos sensibles y futuras granjas 24/7.
+                    </p>
+                </div>
+
+                <!-- Component 3 -->
+                <div class="hover-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-600">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="p-3 bg-blue-50 text-blue-600 rounded-lg">
+                            <i data-lucide="settings" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">Sistema Operativo</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Protocolos de mantenimiento preventivo, cadena de suministro de repuestos y monitoreo de calidad.
+                    </p>
+                </div>
+
+                <!-- Component 4 -->
+                <div class="hover-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-purple-500">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="p-3 bg-purple-50 text-purple-600 rounded-lg">
+                            <i data-lucide="users" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">Gobernanza Comunitaria</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        <strong>El requisito clave.</strong> Roles claros, reglas de turnos y acuerdos firmados para activar la fase productiva.
+                    </p>
+                </div>
+
+                <!-- Component 5 -->
+                <div class="hover-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-emerald-500">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="p-3 bg-emerald-50 text-emerald-600 rounded-lg">
+                            <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">Transparencia Total</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Telemetría en tiempo real de producción y energía, con tableros visibles para la comunidad.
+                    </p>
+                </div>
+
+                <!-- Component 6 -->
+                <div class="hover-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-indigo-500">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="p-3 bg-indigo-50 text-indigo-600 rounded-lg">
+                            <i data-lucide="trending-up" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">Motor de Sostenibilidad</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Fondo O&M transparente alimentado por micro-ingresos y contratos de servicio.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Aquaculture (Phase 2) -->
+    <section id="aquaculture" class="py-24 bg-blue-50 overflow-hidden relative">
+        <!-- Decoration circles -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-200 rounded-full opacity-20 blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-200 rounded-full opacity-20 blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <!-- Text Content -->
+                <div class="lg:w-1/2">
+                    <span class="inline-block py-1.5 px-4 rounded-full bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider mb-6 border border-blue-200">
+                        Fase 2: Expansión Productiva
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                        Seguridad Alimentaria: <br/>
+                        <span class="text-blue-600">Granjas Inteligentes</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Una vez establecido el <strong>Pacto por la Gobernanza Comunitaria</strong> y asegurados el Agua y la Energía, activamos el componente acuícola.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Transformamos la infraestructura en un motor de desarrollo. Creamos sistemas productivos de proteína de alta calidad, gestionados por la misma comunidad, cerrando la brecha de hambre y pobreza.
+                    </p>
+                    
+                    <!-- Checklist -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-3 bg-white rounded-lg shadow-sm border border-blue-100">
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                                <i data-lucide="check-circle" class="w-5 h-5"></i>
+                            </div>
+                            <span class="font-semibold text-gray-800">Pacto de Gobernanza Firmado</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 bg-white rounded-lg shadow-sm border border-blue-100">
+                            <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600">
+                                <i data-lucide="zap" class="w-5 h-5"></i>
+                            </div>
+                            <span class="font-semibold text-gray-800">Energía Estable & Redundante</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 bg-white rounded-lg shadow-sm border border-blue-100">
+                            <div class="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600">
+                                <i data-lucide="droplets" class="w-5 h-5"></i>
+                            </div>
+                            <span class="font-semibold text-gray-800">Agua Segura para Procesos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cards Column -->
+                <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                    <!-- Shrimp Card -->
+                    <div class="hover-card bg-white p-8 rounded-2xl shadow-xl border border-blue-100">
+                        <div class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-500/30">
+                            <i data-lucide="waves" class="w-9 h-9"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Camarón (Agua Salada)</h3>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                            Aprovechamos la salinidad de los pozos o cercanía al mar. Cultivo intensivo con tecnología Biofloc.
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-3">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-blue-500"></i>
+                                <span>Alto valor comercial (Exportación)</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-blue-500"></i>
+                                <span>Generación de ingresos rápidos</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tilapia Card -->
+                    <div class="hover-card bg-white p-8 rounded-2xl shadow-xl border border-teal-100">
+                        <div class="w-16 h-16 bg-teal-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-teal-500/30">
+                            <i data-lucide="fish" class="w-9 h-9"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Tilapia (Agua Dulce)</h3>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                            Sistemas de recirculación (RAS) optimizados para zonas áridas. Carne magra para consumo.
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-3">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-teal-500"></i>
+                                <span>Seguridad alimentaria directa</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-teal-500"></i>
+                                <span>Ciclos cortos de producción</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="py-24 bg-cyan-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Impacto Integral</h2>
+                <p class="text-cyan-100 text-lg">De la supervivencia a la productividad sostenible.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Health -->
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:bg-white/15 transition-colors">
+                    <div class="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center text-cyan-400 mb-4">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Salud + Nutrición</h3>
+                    <p class="text-sm text-cyan-100 leading-relaxed">Reducción de enfermedades y mejora crítica en la ingesta de proteína animal.</p>
+                </div>
+
+                <!-- Time -->
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:bg-white/15 transition-colors">
+                    <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center text-pink-400 mb-4">
+                        <i data-lucide="clock" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Tiempo de Vida</h3>
+                    <p class="text-sm text-cyan-100 leading-relaxed">Mujeres y niños recuperan horas diarias al tener agua en su comunidad.</p>
+                </div>
+
+                <!-- Economy -->
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:bg-white/15 transition-colors">
+                    <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center text-yellow-400 mb-4">
+                        <i data-lucide="trending-up" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Economía Local</h3>
+                    <p class="text-sm text-cyan-100 leading-relaxed">Ingresos reales por venta de excedentes de acuicultura y servicios de agua.</p>
+                </div>
+
+                <!-- Governance -->
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:bg-white/15 transition-colors">
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-400 mb-4">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Gobernanza</h3>
+                    <p class="text-sm text-cyan-100 leading-relaxed">Comunidades organizadas y capacitadas gestionando sus propios activos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Section -->
+    <section id="model" class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900">Sostenibilidad Financiera</h2>
+                    <p class="text-gray-600 mt-2 text-lg">Un modelo híbrido que sostiene el sistema de agua mediante la productividad.</p>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="min-w-[60px] md:mr-6 mb-4 md:mb-0">
+                            <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-700 font-bold text-xl">1</div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl text-gray-900 mb-2">Venta de Proteína y Servicios</h3>
+                            <p class="text-gray-600">
+                                La venta de Tilapia y Camarón genera un flujo de caja significativo. Una parte de estas ganancias subsidia directamente el mantenimiento (O&M) del sistema de agua potable.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="min-w-[60px] md:mr-6 mb-4 md:mb-0">
+                            <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-700 font-bold text-xl">2</div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl text-gray-900 mb-2">Contratos O&M-as-a-Service</h3>
+                            <p class="text-gray-600">
+                                Establecemos contratos B2G/B2B con instituciones (escuelas, ONGs, alcaldías) para garantizar el uptime de los sistemas de agua a cambio de una tarifa de servicio.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="min-w-[60px] md:mr-6 mb-4 md:mb-0">
+                            <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-700 font-bold text-xl">3</div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl text-gray-900 mb-2">Micro-ingresos Comunitarios</h3>
+                            <p class="text-gray-600">
+                                Tarifas simbólicas y justas por servicios de agua premium, destinadas estrictamente y con total transparencia al <strong>Fondo O&M</strong> local.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Nuestra Coalición</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Kambio Project lidera un consorcio de expertos para garantizar que cada pieza técnica y social funcione.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Kambio -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm text-center border border-gray-100">
+                    <div class="w-16 h-16 bg-cyan-100 rounded-2xl flex items-center justify-center text-cyan-600 mx-auto mb-6">
+                        <i data-lucide="droplets" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-900 mb-1">Kambio Project</h3>
+                    <p class="text-xs text-cyan-600 font-bold uppercase tracking-wide mb-3">Líder</p>
+                    <p class="text-gray-600 text-sm">
+                        Visión estratégica e integración de sistemas (Agua + Agro).
+                    </p>
+                </div>
+
+                <!-- Telecso -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm text-center border border-gray-100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mx-auto mb-6">
+                        <i data-lucide="settings" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-900 mb-1">Telecso SAS</h3>
+                    <p class="text-xs text-blue-600 font-bold uppercase tracking-wide mb-3">Técnico</p>
+                    <p class="text-gray-600 text-sm">
+                        Ingeniería Hidráulica, Solar y montaje de Granjas.
+                    </p>
+                </div>
+
+                <!-- Futys -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm text-center border border-gray-100">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mx-auto mb-6">
+                        <i data-lucide="users" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-900 mb-1">Fundación Futys</h3>
+                    <p class="text-xs text-purple-600 font-bold uppercase tracking-wide mb-3">Social</p>
+                    <p class="text-gray-600 text-sm">
+                        Diseño de comportamiento y Pactos de Gobernanza.
+                    </p>
+                </div>
+
+                <!-- The Cause -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm text-center border border-gray-100">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 mx-auto mb-6">
+                        <i data-lucide="map-pin" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-900 mb-1">The Cause</h3>
+                    <p class="text-xs text-orange-600 font-bold uppercase tracking-wide mb-3">Campo</p>
+                    <p class="text-gray-600 text-sm">
+                        Implementación en contextos complejos y fundraising.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="flex items-center gap-2 mb-4 md:mb-0">
+                    <div class="bg-slate-800 p-2 rounded-lg text-cyan-500">
+                        <i data-lucide="droplets" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-white">Kambio Project</span>
+                </div>
+                <div class="flex space-x-8 text-sm font-medium">
+                    <a href="#" class="hover:text-cyan-400 transition-colors">Historia</a>
+                    <a href="#" class="hover:text-cyan-400 transition-colors">Proyecto</a>
+                    <a href="#" class="hover:text-cyan-400 transition-colors">Aliados</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; <span id="year"></span> Kambio Project. Todos los derechos reservados.</p>
+                <p class="mt-2 md:mt-0 opacity-75">Diseñado para transformar vidas en La Guajira.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript para lógica de UI -->
+    <script>
+        // 1. Inicializar Iconos Lucide
+        lucide.createIcons();
+
+        // 2. Establecer año actual
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 3. Lógica del Navbar (Cambio de color al hacer scroll)
+        const navbar = document.getElementById('navbar');
+        const brandText = document.getElementById('brand-text');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const aquacultureLink = document.getElementById('aquaculture-link');
+
+        function updateNavbar() {
+            const isScrolled = window.scrollY > 20;
+
+            if (isScrolled) {
+                // Estado: Scrolled (Fondo Blanco)
+                navbar.classList.add('bg-white', 'shadow-md', 'py-2');
+                navbar.classList.remove('bg-transparent', 'py-4');
+                
+                // Textos oscuros
+                brandText.classList.remove('text-white');
+                brandText.classList.add('text-gray-900');
+                
+                mobileMenuBtn.classList.remove('text-white');
+                mobileMenuBtn.classList.add('text-gray-800');
+
+                // Enlaces
+                navLinks.forEach(link => {
+                    if (link.id === 'aquaculture-link') {
+                        link.classList.remove('text-cyan-300');
+                        link.classList.add('text-cyan-600');
+                    } else {
+                        link.classList.remove('text-white/90', 'hover:text-white');
+                        link.classList.add('text-gray-600', 'hover:text-cyan-500');
+                    }
+                });
+            } else {
+                // Estado: Top (Transparente)
+                navbar.classList.remove('bg-white', 'shadow-md', 'py-2');
+                navbar.classList.add('bg-transparent', 'py-4');
+
+                // Textos claros
+                brandText.classList.remove('text-gray-900');
+                brandText.classList.add('text-white');
+
+                mobileMenuBtn.classList.remove('text-gray-800');
+                mobileMenuBtn.classList.add('text-white');
+
+                // Enlaces
+                navLinks.forEach(link => {
+                    if (link.id === 'aquaculture-link') {
+                        link.classList.remove('text-cyan-600');
+                        link.classList.add('text-cyan-300');
+                    } else {
+                        link.classList.remove('text-gray-600', 'hover:text-cyan-500');
+                        link.classList.add('text-white/90', 'hover:text-white');
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('scroll', updateNavbar);
+        // Llamada inicial por si se recarga la página con scroll
+        updateNavbar();
+
+        // 4. Lógica del Menú Móvil
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('data-lucide', 'x');
+                // Al abrir el menú en top, asegurar que el fondo del nav sea sólido para legibilidad
+                if (window.scrollY <= 20) {
+                     navbar.classList.add('bg-slate-900'); // Fondo oscuro temporal
+                }
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                if (window.scrollY <= 20) {
+                     navbar.classList.remove('bg-slate-900');
+                }
+            }
+            lucide.createIcons(); 
+        });
+
+        // Cerrar menú al hacer click en un enlace
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                if (window.scrollY <= 20) {
+                     navbar.classList.remove('bg-slate-900');
+                }
+                lucide.createIcons();
+            });
+        });
+    </script>
+</body>
+</html>
