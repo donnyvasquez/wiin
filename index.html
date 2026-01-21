@@ -11,7 +11,7 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Fuente: Inter -->
+    <!-- Fuente: Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -19,6 +19,10 @@
         /* Animaciones suaves para las tarjetas */
         .hover-card { transition: all 0.3s ease; }
         .hover-card:hover { transform: translateY(-5px); }
+        
+        /* Modal Styles */
+        #credits-modal { transition: opacity 0.3s ease; }
+        .modal-content { transition: transform 0.3s ease; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -49,13 +53,13 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 transition-colors text-white">
+            <button id="mobile-menu-btn" class="p-2 transition-colors text-white md:hidden">
                 <i id="menu-icon" data-lucide="menu" class="w-7 h-7"></i>
             </button>
         </div>
 
         <!-- Mobile Nav Dropdown -->
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-xl py-4 px-6 flex flex-col space-y-4 border-t border-gray-100">
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-xl py-4 px-6 flex flex-col space-y-4 border-t border-gray-100 md:hidden">
             <a href="#home" class="mobile-link text-gray-600 font-medium py-2 border-b border-gray-100">Inicio</a>
             <a href="#problem" class="mobile-link text-gray-600 font-medium py-2 border-b border-gray-100">Problema</a>
             <a href="#solution" class="mobile-link text-gray-600 font-medium py-2 border-b border-gray-100">Solución</a>
@@ -71,7 +75,6 @@
         <!-- Background Image & Overlay -->
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/70 to-slate-800/30 z-10"></div>
-            <!-- Imagen de Unsplash: Oasis en el desierto -->
             <img 
                 src="https://images.unsplash.com/photo-1527736848781-72dc3b2ee00f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
                 alt="Oasis en el desierto" 
@@ -117,7 +120,6 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
                 <div class="hover-card bg-red-50 p-8 rounded-2xl border border-red-100">
                     <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-red-600 mb-6">
                         <i data-lucide="wrench" class="w-7 h-7"></i>
@@ -128,7 +130,6 @@
                     </p>
                 </div>
                 
-                <!-- Card 2 -->
                 <div class="hover-card bg-orange-50 p-8 rounded-2xl border border-orange-100">
                     <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mb-6">
                         <i data-lucide="users" class="w-7 h-7"></i>
@@ -139,7 +140,6 @@
                     </p>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="hover-card bg-slate-50 p-8 rounded-2xl border border-slate-100">
                     <div class="w-14 h-14 bg-slate-200 rounded-full flex items-center justify-center text-slate-700 mb-6">
                         <i data-lucide="activity" class="w-7 h-7"></i>
@@ -165,7 +165,6 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Component 1 -->
                 <div class="hover-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-cyan-500">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="p-3 bg-cyan-50 text-cyan-600 rounded-lg">
@@ -178,7 +177,6 @@
                     </p>
                 </div>
 
-                <!-- Component 2 -->
                 <div class="hover-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-yellow-500">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="p-3 bg-yellow-50 text-yellow-600 rounded-lg">
@@ -191,7 +189,6 @@
                     </p>
                 </div>
 
-                <!-- Component 3 -->
                 <div class="hover-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-600">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="p-3 bg-blue-50 text-blue-600 rounded-lg">
@@ -204,7 +201,6 @@
                     </p>
                 </div>
 
-                <!-- Component 4 -->
                 <div class="hover-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-purple-500">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="p-3 bg-purple-50 text-purple-600 rounded-lg">
@@ -213,11 +209,10 @@
                         <h3 class="font-bold text-lg text-gray-900">Gobernanza Comunitaria</h3>
                     </div>
                     <p class="text-gray-600 text-sm">
-                        <strong>El requisito clave.</strong> Roles claros, reglas de turnos y acuerdos firmados para activar la fase productiva.
+                        Roles claros, reglas de turnos y acuerdos firmados para activar la fase productiva.
                     </p>
                 </div>
 
-                <!-- Component 5 -->
                 <div class="hover-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-emerald-500">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="p-3 bg-emerald-50 text-emerald-600 rounded-lg">
@@ -230,7 +225,6 @@
                     </p>
                 </div>
 
-                <!-- Component 6 -->
                 <div class="hover-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-indigo-500">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="p-3 bg-indigo-50 text-indigo-600 rounded-lg">
@@ -292,7 +286,7 @@
 
                 <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                     <div class="hover-card bg-white p-8 rounded-2xl shadow-xl border border-blue-100">
-                        <div class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-500/30">
+                        <div class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white mb-6">
                             <i data-lucide="waves" class="w-9 h-9"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-3">Camarón (Agua Salada)</h3>
@@ -308,7 +302,7 @@
                     </div>
 
                     <div class="hover-card bg-white p-8 rounded-2xl shadow-xl border border-teal-100">
-                        <div class="w-16 h-16 bg-teal-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-teal-500/30">
+                        <div class="w-16 h-16 bg-teal-500 rounded-2xl flex items-center justify-center text-white mb-6">
                             <i data-lucide="fish" class="w-9 h-9"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-3">Tilapia (Agua Dulce)</h3>
@@ -329,41 +323,28 @@
 
     <!-- Impact Section -->
     <section id="impact" class="py-24 bg-cyan-900 text-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-tighter text-cyan-400">Impacto Wüin</h2>
-                <p class="text-cyan-100 text-lg opacity-80">De la supervivencia a la productividad sostenible.</p>
-            </div>
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-tighter text-cyan-400">Impacto Wüin</h2>
+            <p class="text-cyan-100 text-lg opacity-80 mb-16">De la supervivencia a la productividad sostenible.</p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:bg-white/15 transition-colors text-center">
-                    <div class="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center text-cyan-400 mb-4 mx-auto">
-                        <i data-lucide="shield-check" class="w-6 h-6"></i>
-                    </div>
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10">
+                    <i data-lucide="shield-check" class="text-cyan-400 mb-4 mx-auto w-10 h-10"></i>
                     <h3 class="text-xl font-bold mb-2">Salud + Nutrición</h3>
                     <p class="text-sm text-cyan-100">Reducción de enfermedades y mejora en la ingesta de proteína.</p>
                 </div>
-
-                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:bg-white/15 transition-colors text-center">
-                    <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center text-pink-400 mb-4 mx-auto">
-                        <i data-lucide="clock" class="w-6 h-6"></i>
-                    </div>
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10">
+                    <i data-lucide="clock" class="text-pink-400 mb-4 mx-auto w-10 h-10"></i>
                     <h3 class="text-xl font-bold mb-2">Tiempo de Vida</h3>
                     <p class="text-sm text-cyan-100">Mujeres y niños recuperan horas diarias al no caminar por agua.</p>
                 </div>
-
-                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:bg-white/15 transition-colors text-center">
-                    <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center text-yellow-400 mb-4 mx-auto">
-                        <i data-lucide="trending-up" class="w-6 h-6"></i>
-                    </div>
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10">
+                    <i data-lucide="trending-up" class="text-yellow-400 mb-4 mx-auto w-10 h-10"></i>
                     <h3 class="text-xl font-bold mb-2">Economía Local</h3>
                     <p class="text-sm text-cyan-100">Ingresos reales por venta de excedentes de acuicultura.</p>
                 </div>
-
-                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:bg-white/15 transition-colors text-center">
-                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-400 mb-4 mx-auto">
-                        <i data-lucide="users" class="w-6 h-6"></i>
-                    </div>
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10">
+                    <i data-lucide="users" class="text-purple-400 mb-4 mx-auto w-10 h-10"></i>
                     <h3 class="text-xl font-bold mb-2">Gobernanza</h3>
                     <p class="text-sm text-cyan-100">Comunidades capacitadas gestionando sus propios activos.</p>
                 </div>
@@ -373,36 +354,29 @@
 
     <!-- Model Section -->
     <section id="model" class="py-24 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold text-gray-900 uppercase">Sostenibilidad Wüin</h2>
-                    <p class="text-gray-600 mt-2 text-lg">Un modelo impulsado por Kambio Project que sostiene el sistema mediante la productividad.</p>
-                </div>
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 uppercase">Sostenibilidad Wüin</h2>
+                <p class="text-gray-600 mt-2 text-lg">Un modelo impulsado por Kambio Project que sostiene el sistema mediante la productividad.</p>
+            </div>
 
-                <div class="space-y-6">
-                    <div class="flex flex-col md:flex-row bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
-                        <div class="min-w-[60px] md:mr-6 mb-4 md:mb-0">
-                            <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-700 font-bold text-xl">1</div>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-xl text-gray-900 mb-2">Venta de Proteína</h3>
-                            <p class="text-gray-600">
-                                La venta de Tilapia y Camarón genera el flujo de caja necesario para subsidiar el mantenimiento preventivo del sistema de agua.
-                            </p>
-                        </div>
+            <div class="space-y-6">
+                <div class="flex flex-col md:flex-row bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="min-w-[60px] md:mr-6 mb-4 md:mb-0">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-700 font-bold text-xl">1</div>
                     </div>
-
-                    <div class="flex flex-col md:flex-row bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
-                        <div class="min-w-[60px] md:mr-6 mb-4 md:mb-0">
-                            <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-700 font-bold text-xl">2</div>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-xl text-gray-900 mb-2">Contratos O&M-as-a-Service</h3>
-                            <p class="text-gray-600">
-                                Acuerdos con instituciones (escuelas, ONGs) para garantizar el uptime de los sistemas a cambio de una tarifa de mantenimiento proactiva.
-                            </p>
-                        </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-gray-900 mb-2">Venta de Proteína</h3>
+                        <p class="text-gray-600">La venta de Tilapia y Camarón genera el flujo de caja necesario para subsidiar el mantenimiento del sistema de agua.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="min-w-[60px] md:mr-6 mb-4 md:mb-0">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-700 font-bold text-xl">2</div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-gray-900 mb-2">Contratos O&M-as-a-Service</h3>
+                        <p class="text-gray-600">Acuerdos con instituciones (escuelas, ONGs) para garantizar el uptime de los sistemas a cambio de una tarifa de mantenimiento.</p>
                     </div>
                 </div>
             </div>
@@ -413,51 +387,42 @@
     <section id="team" class="py-24 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">La Coalición tras Wüin</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Expertos unidos bajo la visión de Kambio Project para garantizar que cada pieza funcione en territorio.
-                </p>
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 text-center">La Coalición tras Wüin</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Expertos unidos bajo la visión de Kambio Project.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Kambio Project (Visionario) -->
                 <div class="bg-white p-8 rounded-2xl shadow-sm text-center border border-gray-100">
                     <div class="w-16 h-16 bg-cyan-100 rounded-2xl flex items-center justify-center text-cyan-600 mx-auto mb-6">
                         <i data-lucide="droplets" class="w-8 h-8"></i>
                     </div>
                     <h3 class="font-bold text-xl text-gray-900 mb-1">Kambio Project</h3>
                     <p class="text-xs text-cyan-600 font-bold uppercase tracking-wide mb-3">Visionario y Líder</p>
-                    <p class="text-gray-600 text-sm">Arquitecto del modelo, integración de sistemas y dirección estratégica de Wüin.</p>
+                    <p class="text-gray-600 text-sm">Arquitecto del modelo y dirección estratégica de Wüin.</p>
                 </div>
-
-                <!-- Futys -->
                 <div class="bg-white p-8 rounded-2xl shadow-sm text-center border border-gray-100">
                     <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mx-auto mb-6">
                         <i data-lucide="users" class="w-8 h-8"></i>
                     </div>
                     <h3 class="font-bold text-xl text-gray-900 mb-1">Fundación Futys</h3>
                     <p class="text-xs text-purple-600 font-bold uppercase tracking-wide mb-3">Socio Social</p>
-                    <p class="text-gray-600 text-sm">Diseño de comportamiento, liderazgo y Pactos de Gobernanza comunitaria.</p>
+                    <p class="text-gray-600 text-sm">Diseño de comportamiento y Pactos de Gobernanza.</p>
                 </div>
-
-                <!-- The Cause -->
                 <div class="bg-white p-8 rounded-2xl shadow-sm text-center border border-gray-100">
                     <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mx-auto mb-6">
                         <i data-lucide="map-pin" class="w-8 h-8"></i>
                     </div>
                     <h3 class="font-bold text-xl text-gray-900 mb-1">The Cause</h3>
                     <p class="text-xs text-orange-600 font-bold uppercase tracking-wide mb-3">Socio de Campo</p>
-                    <p class="text-gray-600 text-sm">Implementación en contextos complejos, logística y apoyo en fundraising.</p>
+                    <p class="text-gray-600 text-sm">Implementación en contextos complejos y fundraising.</p>
                 </div>
-
-                <!-- Telecso (Last) -->
                 <div class="bg-white p-8 rounded-2xl shadow-sm text-center border border-gray-100">
                     <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mx-auto mb-6">
                         <i data-lucide="settings" class="w-8 h-8"></i>
                     </div>
                     <h3 class="font-bold text-xl text-gray-900 mb-1">Telecso SAS</h3>
                     <p class="text-xs text-blue-600 font-bold uppercase tracking-wide mb-3">Socio Técnico</p>
-                    <p class="text-gray-600 text-sm">Ingeniería Hidráulica, Energía Solar y montaje técnico de Granjas.</p>
+                    <p class="text-gray-600 text-sm">Ingeniería Hidráulica, Solar y montaje de Granjas.</p>
                 </div>
             </div>
         </div>
@@ -466,26 +431,64 @@
     <!-- Footer -->
     <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
                 <div class="flex items-center gap-2 mb-4 md:mb-0 mx-auto md:mx-0">
-                    <div class="bg-slate-800 p-2 rounded-lg text-cyan-500">
+                    <div class="bg-slate-800 p-2 rounded-lg text-cyan-500 shadow-md">
                         <i data-lucide="droplets" class="w-5 h-5"></i>
                     </div>
                     <span class="text-2xl font-black text-white uppercase tracking-tighter">Wüin</span>
                 </div>
                 <div class="flex space-x-8 text-sm font-medium mx-auto md:mx-0">
-                    <a href="#" class="hover:text-cyan-400 transition-colors">Historia</a>
-                    <a href="#" class="hover:text-cyan-400 transition-colors">Proyecto</a>
-                    <a href="#" class="hover:text-cyan-400 transition-colors">Aliados</a>
+                    <a href="#home" class="hover:text-cyan-400 transition-colors">Historia</a>
+                    <a href="#solution" class="hover:text-cyan-400 transition-colors">Proyecto</a>
+                    <a href="#team" class="hover:text-cyan-400 transition-colors">Aliados</a>
                 </div>
             </div>
             
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-center">
-                <p>&copy; <span id="year"></span> Wüin es una iniciativa de <strong>Kambio Project</strong>. Todos los derechos reservados.</p>
-                <p class="mt-2 md:mt-0 opacity-75 italic text-xs">Transformando vidas en La Guajira, Colombia.</p>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-center md:text-left gap-4">
+                <div class="flex items-center gap-3">
+                    <p>&copy; <span id="year"></span> Wüin es una iniciativa de <strong>Kambio Project</strong>.</p>
+                    <button id="open-credits" class="p-1 hover:text-cyan-400 transition-colors" title="Información y créditos">
+                        <i data-lucide="info" class="w-4 h-4"></i>
+                    </button>
+                </div>
+                <p class="opacity-75 italic">Transformando vidas en La Guajira, Colombia.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Credits Modal -->
+    <div id="credits-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm" id="close-modal-bg"></div>
+        <!-- Content -->
+        <div class="modal-content relative bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden scale-95 opacity-0">
+            <div class="bg-slate-50 p-4 border-b flex justify-between items-center">
+                <h3 class="font-bold text-slate-900 flex items-center gap-2">
+                    <i data-lucide="info" class="w-5 h-5 text-cyan-600"></i> Referencias y Créditos
+                </h3>
+                <button id="close-modal" class="p-1 hover:bg-slate-200 rounded-full transition-colors">
+                    <i data-lucide="x" class="w-5 h-5 text-slate-500"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-4 text-sm text-slate-600">
+                <div>
+                    <h4 class="font-bold text-slate-800 mb-1">Recursos Visuales</h4>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Foto de <span class="font-semibold">Willian Justen de Vasconcellos</span> en Unsplash (Imagen de fondo Hero).</li>
+                        <li>Iconografía por <span class="font-semibold">Lucide React Icons</span>.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-800 mb-1">Desarrollo e Identidad</h4>
+                    <p>Wüin es una marca registrada bajo la visión de Kambio Project para el desarrollo sostenible en La Guajira.</p>
+                </div>
+            </div>
+            <div class="bg-slate-50 p-4 text-center text-xs border-t">
+                <p>Todos los derechos reservados &copy; Kambio Project</p>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript para lógica de UI -->
     <script>
@@ -504,7 +507,6 @@
 
         function updateNavbar() {
             const isScrolled = window.scrollY > 20;
-
             if (isScrolled) {
                 navbar.classList.add('bg-white', 'shadow-md', 'py-2');
                 navbar.classList.remove('bg-transparent', 'py-4');
@@ -556,15 +558,11 @@
             if (isMenuOpen) {
                 mobileMenu.classList.remove('hidden');
                 menuIcon.setAttribute('data-lucide', 'x');
-                if (window.scrollY <= 20) {
-                     navbar.classList.add('bg-slate-900');
-                }
+                if (window.scrollY <= 20) navbar.classList.add('bg-slate-900');
             } else {
                 mobileMenu.classList.add('hidden');
                 menuIcon.setAttribute('data-lucide', 'menu');
-                if (window.scrollY <= 20) {
-                     navbar.classList.remove('bg-slate-900');
-                }
+                if (window.scrollY <= 20) navbar.classList.remove('bg-slate-900');
             }
             lucide.createIcons(); 
         });
@@ -574,12 +572,38 @@
                 isMenuOpen = false;
                 mobileMenu.classList.add('hidden');
                 menuIcon.setAttribute('data-lucide', 'menu');
-                if (window.scrollY <= 20) {
-                     navbar.classList.remove('bg-slate-900');
-                }
+                if (window.scrollY <= 20) navbar.classList.remove('bg-slate-900');
                 lucide.createIcons();
             });
         });
+
+        // 5. Lógica del Modal de Créditos
+        const modal = document.getElementById('credits-modal');
+        const modalContent = modal.querySelector('.modal-content');
+        const openBtn = document.getElementById('open-credits');
+        const closeBtn = document.getElementById('close-modal');
+        const closeBg = document.getElementById('close-modal-bg');
+
+        function toggleModal(show) {
+            if (show) {
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.classList.add('opacity-100');
+                    modalContent.classList.remove('scale-95', 'opacity-0');
+                    modalContent.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            } else {
+                modalContent.classList.remove('scale-100', 'opacity-100');
+                modalContent.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        openBtn.addEventListener('click', () => toggleModal(true));
+        closeBtn.addEventListener('click', () => toggleModal(false));
+        closeBg.addEventListener('click', () => toggleModal(false));
     </script>
 </body>
 </html>
